@@ -1,0 +1,95 @@
+name: technician_app
+description: "Fixawy - فيكساوي | Technician App for Home Repair Services"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Shared models
+  fixawy_shared:
+    path: ../shared
+
+  # Firebase
+  firebase_core: any
+  firebase_auth: any
+  cloud_firestore: any
+  firebase_storage: any
+  firebase_messaging: any
+
+  # State Management
+  flutter_bloc: any
+  equatable: any
+
+  # Routing
+  go_router: any
+
+  # DI
+  get_it: any
+  injectable: any
+
+  # Network
+  dio: any
+  connectivity_plus: any
+
+  # Location & Maps
+  google_maps_flutter: any
+  geolocator: any
+  geocoding: any
+
+  # Camera (forced receipt capture)
+  camera: any
+
+  # UI
+  cached_network_image: any
+  shimmer: any
+  flutter_svg: any
+  lottie: any
+  intl: any
+
+  # Storage
+  shared_preferences: any
+  path_provider: any
+
+  # Permissions
+  permission_handler: any
+
+  # Document scanning (KYC)
+  image_picker: any
+
+  # URL launcher
+  url_launcher: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: any
+  injectable_generator: any
+  build_runner: any
+  bloc_test: any
+  mocktail: any
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/animations/
+
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Cairo-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Cairo-Light.ttf
+          weight: 300

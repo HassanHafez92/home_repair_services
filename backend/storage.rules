@@ -1,0 +1,60 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && request.auth.token.role == 'admin';
+    }
+
+    function isImage() {
+      return request.resource.contentType.matches('image/.*');
+    }
+
+    function isUnder5MB() {
+      return request.resource.size < 5 * 1024 * 1024;
+    }
+
+    // ─── User Profile Photos ──────────────────────────
+
+    match /users/{userId}/profile/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isOwner(userId) && isImage() && isUnder5MB();
+    }
+
+    // ─── Technician KYC Documents ─────────────────────
+
+    match /technicians/{techId}/kyc/{fileName} {
+      allow read: if isOwner(techId) || isAdmin();
+      allow write: if isOwner(techId) && isUnder5MB();
+    }
+
+    // ─── Job Receipt Photos ───────────────────────────
+
+    match /jobs/{jobId}/receipts/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && isImage() && isUnder5MB();
+    }
+
+    // ─── Job Voice Notes ──────────────────────────────
+
+    match /jobs/{jobId}/voice_notes/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && request.resource.size < 10 * 1024 * 1024;
+    }
+
+    // ─── Deny everything else ─────────────────────────
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

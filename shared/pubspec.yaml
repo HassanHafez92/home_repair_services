@@ -1,0 +1,16 @@
+name: fixawy_shared
+description: Shared models and constants for the Fixawy platform
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  cloud_firestore: ^5.6.5
+  json_annotation: ^4.9.0
+  equatable: ^2.0.7
+
+dev_dependencies:
+  json_serializable: ^6.8.0
+  build_runner: ^2.4.13
