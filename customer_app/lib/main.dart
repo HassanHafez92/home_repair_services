@@ -11,7 +11,7 @@ import 'features/auth/bloc/auth_event.dart';
 import 'features/jobs/bloc/job_bloc.dart';
 import 'features/notifications/bloc/notification_bloc.dart';
 import 'features/wallet/bloc/wallet_bloc.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -73,6 +73,11 @@ class FixawyApp extends StatelessWidget {
         supportedLocales: const [
           Locale('ar', 'EG'),
           Locale('en', 'US'),
+        ],
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
         ],
 
         // Theme

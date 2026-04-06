@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "616835894792",
+    "project_id": "fixawy-app-production",
+    "storage_bucket": "fixawy-app-production.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616835894792:android:aa77416e8eec7caa984bbd",
+        "android_client_info": {
+          "package_name": "com.fixawy.customer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWCIDLOLoQZQOtEOv7n3JBCi41_Hr7WWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616835894792:android:181a4f50adf9a641984bbd",
+        "android_client_info": {
+          "package_name": "com.fixawy.tech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWCIDLOLoQZQOtEOv7n3JBCi41_Hr7WWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
